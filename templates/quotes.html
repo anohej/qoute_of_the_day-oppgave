@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quotes</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="page">
+    <h1 class="profile-title">Quotes</h1>
+    <p><a class="small-link" href="{{ url_for('add_quote') }}">Legg til ny quote</a></p>
+
+    <ul>
+      {% for q in quotes %}
+        <li>
+          <strong>{{ q[1] }}</strong> — 
+          <span class="quote-display" style="display:inline">{{ q[2] }}</span>
+          <form style="display:inline" action="{{ url_for('delete_quote', qid=q[0]) }}" method="post">
+            <button class="btn" type="submit" style="display:inline-block; width:auto; padding:6px 10px; font-size:14px; border-radius:8px;">Slett</button>
+          </form>
+          <a class="small-link" href="{{ url_for('view_quote', qid=q[0]) }}">Vis / Rediger</a>
+          <div class="meta">{{ q[3] }}</div>
+        </li>
+      {% else %}
+        <li>Ingen quotes ennå.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

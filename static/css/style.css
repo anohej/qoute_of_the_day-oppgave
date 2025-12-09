@@ -1,0 +1,115 @@
+
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #111218; 
+  color: #e6e6e6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr; 
+  gap: 30px;
+  align-items: start;
+}
+
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.profile-title {
+  font-size: clamp(28px, 5vw, 48px); 
+  line-height: 1.05;
+  margin: 0;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+
+.quote-display {
+  background: transparent;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 10px 0;
+  white-space: pre-wrap;      
+  word-wrap: break-word;     
+  overflow-wrap: anywhere;    
+}
+
+
+.edit-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.edit-panel h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #f0e6f0;
+}
+
+textarea {
+  width: 100%;
+  min-height: 110px;
+  max-height: 300px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: #fff;
+  resize: vertical;
+  line-height: 1.4;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: #d9b8d9;    
+  color: #111;
+  font-weight: 600;
+}
+
+
+.small-link {
+  text-decoration: none;
+  color: #b08fb0;
+  font-size: 14px;
+}
+
+
+.meta {
+  color: #bdbdbd;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+h1.big-left {
+  margin: 0 0 10px 0;
+  font-size: clamp(28px, 6vw, 56px);
+}
+
+.quote-display p {
+  margin: 0 0 10px 0;
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Legg til quote</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="page">
+    <h1 class="profile-title">Legg til ny quote</h1>
+    <form method="post" action="{{ url_for('add_quote') }}" class="edit-panel">
+      <label>Navn:<br><input type="text" name="name" required></label><br>
+      <label>Quote:<br><textarea name="quote" rows="4" cols="40" required></textarea></label>
+      <button class="btn" type="submit">Legg til</button>
+    </form>
+    <p><a class="small-link" href="{{ url_for('index') }}">Tilbake</a></p>
+  </div>
+
+<script>
+const badWords = ["nigger", "nigga", "retard", "faggot", "nigg@", "neger"];
+
+function checkQuote(quote) {
+  const lower = quote.toLowerCase();
+  for (const w of badWords) {
+    if (lower.includes(w)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+document.querySelector("form").addEventListener("submit", function (e) {
+  const quote = document.querySelector("textarea[name='Quote']").value;
+
+  if (!checkQuote(quote)) {
+    e.preventDefault();
+    alert("Use appropriate language");
+  }
+});
+
+</script>
+
+</body>
+</html>

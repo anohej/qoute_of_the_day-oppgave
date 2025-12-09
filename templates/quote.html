@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Quote</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="page">
+    <h1 class="profile-title">Quote fra {{ quote[1] }}</h1>
+
+    <div class="quote-display">
+      <p>{{ quote[2] }}</p>
+      <div class="meta">Lagt til: {{ quote[3] }}</div>
+    </div>
+
+    <div class="edit-panel">
+      <h2>Endre quote</h2>
+      <form method="post" action="{{ url_for('view_quote', qid=quote[0]) }}">
+        <textarea name="quote" rows="4" cols="60">{{ quote[2] }}</textarea>
+        <button class="btn" type="submit">Oppdater</button>
+      </form>
+      <p><a class="small-link" href="{{ url_for('index') }}">Tilbake</a></p>
+    </div>
+  </div>
+</body>
+</html>
